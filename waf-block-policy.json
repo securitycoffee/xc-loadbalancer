@@ -1,0 +1,31 @@
+{
+    "metadata": {
+      "name": "test-waf",
+      "namespace": "k-baum"
+    },
+  "spec": {
+    "allow_all_response_codes": null,
+    "blocking": {},
+    "bot_protection_setting": {
+        "good_bot_action": "REPORT",
+        "malicious_bot_action": "BLOCK",
+        "suspicious_bot_action": "BLOCK"
+    },
+    "default_attack_type_settings": {
+        "only_high_accuracy_signatures": {}
+      },
+      "stage_new_and_updated_signatures": {
+        "staging_period": 0
+      },
+      "stage_new_signatures": {
+        "staging_period": 0
+      },
+      "violation_settings": {
+        "disabled_violation_types": [
+          "VIOL_NONE"
+        ]
+      },
+    "disable_anonymization": {},
+    "use_default_blocking_page": {}
+  }
+}
