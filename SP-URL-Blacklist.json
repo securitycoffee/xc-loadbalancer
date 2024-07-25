@@ -1,0 +1,90 @@
+{
+    "metadata": {
+      "name": "deny-all-path-automation-1",
+      "namespace": "k-baum",
+      "labels": {},
+      "annotations": {},
+      "description": "Deny all to path defined",
+      "disable": false
+    },
+    "spec": {
+      "algo": "FIRST_MATCH",
+      "any_server": {},
+      "rule_list": {
+        "rules": [
+          {
+            "metadata": {
+              "name": "deny-all-path",
+              "description": "Deny all to path defined",
+              "disable": false
+            },
+            "spec": {
+              "action": "DENY",
+              "any_client": {},
+              "label_matcher": {
+                "keys": []
+              },
+              "path": {
+                "prefix_values": [
+                  "/product"
+                ],
+                "exact_values": [],
+                "regex_values": [],
+                "suffix_values": [],
+                "transformers": []
+              },
+              "headers": [],
+              "query_params": [],
+              "http_method": {
+                "methods": [
+                  "GET"
+                ],
+                "invert_matcher": false
+              },
+              "ip_prefix_list": {
+                "ip_prefixes": [
+                  "71.197.155.51/32"
+                ],
+                "ipv6_prefixes": [],
+                "invert_match": true
+              },
+              "any_asn": {},
+              "additional_api_group_matchers": [],
+              "body_matcher": {
+                "exact_values": [],
+                "regex_values": [],
+                "transformers": []
+              },
+              "arg_matchers": [],
+              "cookie_matchers": [],
+              "waf_action": {
+                "none": {}
+              },
+              "domain_matcher": {
+                "exact_values": [],
+                "regex_values": [],
+                "transformers": []
+              },
+              "rate_limiter": [],
+              "forwarding_class": [],
+              "scheme": [],
+              "challenge_action": "DEFAULT_CHALLENGE",
+              "bot_action": {
+                "none": {}
+              },
+              "mum_action": {
+                "default": {}
+              },
+              "user_identity_matcher": {
+                "exact_values": [],
+                "regex_values": []
+              },
+              "origin_server_subsets_action": {},
+              "jwt_claims": []
+            }
+          }
+        ]
+      }
+    },
+    "resource_version": "945565113"
+  }

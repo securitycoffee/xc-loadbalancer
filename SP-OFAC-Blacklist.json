@@ -1,0 +1,107 @@
+{
+    "metadata": {
+      "name": "ofac-deny-2",
+      "namespace": "k-baum",
+      "labels": {},
+      "annotations": {},
+      "description": "Deny OFAC by Country and city",
+      "disable": false
+    },
+     "spec": {
+          "algo": "FIRST_MATCH",
+          "any_server": {},
+          "rules": [
+              {
+                  "kind": "service_policy_rule",
+                  "uid": "24551300-44ce-4d33-b870-69dd85594cba",
+                  "tenant": "f5-sa-rnxeudss",
+                  "namespace": "m-coleman",
+                  "name": "ves-io-service-policy-coleman-ofac-countries-2-crimea"
+              },
+              {
+                  "kind": "service_policy_rule",
+                  "uid": "f8ce3340-6562-402c-a32a-eb027560fe01",
+                  "tenant": "f5-sa-rnxeudss",
+                  "namespace": "m-coleman",
+                  "name": "ves-io-service-policy-coleman-ofac-countries-2-citylevel"
+              }
+          ],
+          "rule_list": {
+              "rules": [
+                  {
+                      "metadata": {
+                          "name": "crimea",
+                          "description": "",
+                          "disable": false
+                      },
+                      "spec": {
+                          "action": "DENY",
+                          "client_selector": {
+                              "expressions": [
+                                  "geoip.ves.io/region = 43"
+                              ]
+                          },
+                          "label_matcher": {
+                              "keys": []
+                          },
+                          "headers": [],
+                          "query_params": [],
+                          "http_method": {
+                              "methods": [
+                                  "ANY"
+                              ],
+                              "invert_matcher": false
+                          },
+                          "any_ip": {},
+                          "any_asn": {},
+                          "expiration_timestamp": null,
+                          "arg_matchers": [],
+                          "cookie_matchers": [],
+                          "waf_action": {
+                              "none": {}
+                          },
+                          "rate_limiter": [],
+                          "forwarding_class": [],
+                          "scheme": [],
+                          "challenge_action": "DEFAULT_CHALLENGE",
+                          "goto_policy": []
+                      }
+                  },
+                  {
+                      "metadata": {
+                          "name": "citylevel",
+                          "description": "",
+                          "disable": false
+                      },
+                      "spec": {
+                          "action": "DENY",
+                          "client_selector": {
+                              "expressions": [
+                                  "geoip.ves.io/city = Beijing"
+                              ]
+                          },
+                          "label_matcher": {
+                              "keys": []
+                          },
+                          "headers": [],
+                          "query_params": [],
+                          "any_ip": {},
+                          "any_asn": {},
+                          "expiration_timestamp": null,
+                          "arg_matchers": [],
+                          "cookie_matchers": [],
+                          "waf_action": {
+                              "none": {}
+                          },
+                          "rate_limiter": [],
+                          "forwarding_class": [],
+                          "scheme": [],
+                          "challenge_action": "DEFAULT_CHALLENGE",
+                          "goto_policy": []
+                      }
+                  }
+              ]
+          },
+          "simple_rules": []
+      }
+  }

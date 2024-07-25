@@ -1,0 +1,83 @@
+{
+    "metadata": {
+      "name": "ofac-deny-1",
+      "namespace": "k-baum",
+      "labels": {},
+      "annotations": {},
+      "description": "Deny OFAC by country and ASN",
+      "disable": false
+    },
+    "spec": {
+      "algo": "FIRST_MATCH",
+      "any_server": {},
+       "rules": [
+              {
+                  "kind": "service_policy_rule",
+                  "uid": "c12f8c5d-44c2-495c-83e8-30842e9e0a7f",
+                  "tenant": "f5-sa-rnxeudss",
+                  "namespace": "m-coleman",
+                  "name": "ves-io-service-policy-coleman-ofac-deny-asn-list"
+              },
+              {
+                  "kind": "service_policy_rule",
+                  "uid": "5d24d0d0-6c6b-4c7b-b5b3-4bec67c2ffed",
+                  "tenant": "f5-sa-rnxeudss",
+                  "namespace": "m-coleman",
+                  "name": "ves-io-service-policy-coleman-ofac-deny-country-list"
+              },
+              {
+                  "kind": "service_policy_rule",
+                  "uid": "f9df0b83-21de-4c13-aebf-4e27fc580ed0",
+                  "tenant": "f5-sa-rnxeudss",
+                  "namespace": "m-coleman",
+                  "name": "ves-io-service-policy-coleman-ofac-deny-default-action"
+              }
+          ],
+          "deny_list": {
+              "ip_prefix_set": [],
+              "asn_list": {
+                  "as_numbers": [
+                      204791,
+                      205515,
+                      208090,
+                      28761,
+                      41269,
+                      43222,
+                      43564,
+                      49617,
+                      59744,
+                      8654
+                  ]
+              },
+              "asn_set": [],
+              "country_list": [
+                  "COUNTRY_BY",
+                  "COUNTRY_BA",
+                  "COUNTRY_BI",
+                  "COUNTRY_CF",
+                  "COUNTRY_CU",
+                  "COUNTRY_IR",
+                  "COUNTRY_IQ",
+                  "COUNTRY_KP",
+                  "COUNTRY_XK",
+                  "COUNTRY_LY",
+                  "COUNTRY_MK",
+                  "COUNTRY_SO",
+                  "COUNTRY_SD",
+                  "COUNTRY_SY",
+                  "COUNTRY_ZW",
+                  "COUNTRY_CD",
+                  "COUNTRY_LB",
+                  "COUNTRY_NI",
+                  "COUNTRY_RU",
+                  "COUNTRY_SS",
+                  "COUNTRY_VE",
+                  "COUNTRY_YE"
+              ],
+              "tls_fingerprint_classes": [],
+              "tls_fingerprint_values": [],
+              "default_action_allow": {}
+          },
+          "simple_rules": []
+      }
+  }
